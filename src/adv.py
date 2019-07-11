@@ -8,6 +8,7 @@ from puzzle import Puzzle
 from beginning import BeginGame
 from status import CurrentStatus
 from strings import strings
+from fonts import fonts
 import random
 
 
@@ -28,7 +29,8 @@ def main():
             print(
                 'You must solve this puzzle to continue.  Fail it and the game is over.')
             random.shuffle(strings)
-            puzzle = Puzzle(strings[0], 'avatar').shuffle()
+            random.shuffle(fonts)
+            puzzle = Puzzle(strings[0], fonts[0]).shuffle()
             response = input()
             if response == strings[0]:
                 print('Good work, carry on\n')
