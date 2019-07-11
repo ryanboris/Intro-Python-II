@@ -15,14 +15,19 @@ import random
 def main():
     begin = BeginGame()
     status = CurrentStatus()
+
     curr_player = begin.current_player
     curr_room = begin.current_player.current_room
+
     begin.print_beginning()
+
     status.print_current_status(
         curr_room.name, curr_room.description, curr_room.items)
 
     command = ''
+
     count = 0
+
     while command != 'q':
         command = input('\nEnter a command.\n')
         if (count % 7 == 0):
@@ -75,6 +80,7 @@ def main():
         elif command == 'status':
             status.print_current_status(
                 curr_room.name, curr_room.description, curr_room.items)
+
         elif command == 'n' or command == 'e' or command == 'w' or command == 's':
             try:
                 if command == 'n':
@@ -91,9 +97,11 @@ def main():
                 count += 1
             except:
                 print('Bad move!')
+
         elif command == 'q':
             print('Game over!')
             break
+
         else:
             print('Illegal command.')
 
