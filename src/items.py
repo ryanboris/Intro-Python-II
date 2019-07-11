@@ -1,6 +1,18 @@
 from rooms import room
 from item import Item
 
+room['outside'].n_to = room['foyer']
+room['foyer'].s_to = room['outside']
+room['foyer'].n_to = room['overlook']
+room['foyer'].e_to = room['narrow']
+room['overlook'].s_to = room['foyer']
+room['narrow'].w_to = room['foyer']
+room['narrow'].n_to = room['treasure']
+room['treasure'].s_to = room['narrow']
+room['treasure'].n_to = room['meadows']
+room['meadows'].s_to = room['mountain']
+room['mountain'].e_to = room['cove']
+
 
 items = {
     "outside": [
@@ -30,3 +42,4 @@ room['foyer'].items = items['foyer']
 room['overlook'].items = items['overlook']
 room['narrow'].items = items['narrow']
 room['treasure'].items = items['treasure']
+
