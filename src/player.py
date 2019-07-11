@@ -7,3 +7,8 @@ class Player:
         self.name = name
         self.current_room = current_room
         self.items = []
+
+    def print_current_room_items(self):
+        print('Current room items:\n')
+        for item in self.current_room.items:
+            print(item.name)
