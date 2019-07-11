@@ -12,7 +12,7 @@ room = {
     'narrow':   Room('Narrow Passage', '''The narrow passage bends here from west to north. The smell of gold permeates the air.'''),
 
     'treasure': Room('Treasure Chamber', '''You've found the long-lost treasure
-    chamber! Sadly, it has already been completely emptied by earlier adventurers. The only exit is to the south.'''),
+    chamber! Sadly, it has already been completely emptied by earlier adventurers. The only exit is to the south. But some say ancient meadows lie to the north.'''),
 
     'cove': Room('Cove of Echos', '''Welcome to the Cove of Echos, where sound bounces ad infinitum.  Only the most brave enter the Cove of Echos and scream, but they also never leave.'''),
 
