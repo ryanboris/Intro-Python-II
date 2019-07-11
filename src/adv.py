@@ -7,6 +7,7 @@ from player import Player
 from puzzle import Puzzle
 from beginning import BeginGame
 from status import CurrentStatus
+import random
 
 
 room['outside'].n_to = room['foyer']
@@ -21,6 +22,9 @@ room['treasure'].n_to = room['meadows']
 room['meadows'].s_to = room['mountain']
 room['mountain'].e_to = room['cove']
 
+strings = ['hello world how are you?',
+           'Null is nothing to worry about.', 'Did you pull the repo?']
+
 
 def main():
     begin = BeginGame()
@@ -32,8 +36,21 @@ def main():
         curr_room.name, curr_room.description, curr_room.items)
 
     command = ''
+    count = 0
     while command != 'q':
         command = input('\nEnter a command.\n')
+        if (count % 7 == 0):
+            print(
+                'You must solve this puzzle to continue.  Fail it and the game is over.')
+            random.shuffle(strings)
+            puzzle = Puzzle(strings[0], 'avatar').shuffle()
+            response = input()
+            if response == strings[0]:
+                print('Good work, carry on\n')
+            else:
+                print('Game is over better luck next time...')
+                break
+
         split_cmd = command.split(' ')
 
         if len(split_cmd) == 2:
@@ -84,6 +101,7 @@ def main():
                 curr_room = new_room
                 status.print_current_status(
                     curr_room.name, curr_room.description, curr_room.items)
+                count += 1
             except:
                 print('Bad move!')
         elif command == 'q':
