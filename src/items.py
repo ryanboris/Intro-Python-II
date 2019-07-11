@@ -24,3 +24,9 @@ items = {
         Item('doom', 'this pretty much just blows up the entire world except for parts of Antartica, and half of Sri Lanka.')
     ]
 }
+
+room['outside'].items = items['outside']
+room['foyer'].items = items['foyer']
+room['overlook'].items = items['overlook']
+room['narrow'].items = items['narrow']
+room['treasure'].items = items['treasure']

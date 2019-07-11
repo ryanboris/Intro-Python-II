@@ -1,11 +1,13 @@
 from fancytext import Fancytext
 from item import Item
+from items import items
 from room import Room
 from rooms import room as room
 from player import Player
 from puzzle import Puzzle
 from beginning import BeginGame
 from status import CurrentStatus
+
 
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -31,17 +33,20 @@ def main():
     command = ''
     while command != 'q':
         command = input('\nEnter a command.\n')
-        if command == 'n':
-            new_room = curr_room.n_to
-        if command == 'e':
-            new_room = curr_room.e_to
-        if command == 's':
-            new_room = curr_room.s_to
-        if command == 'w':
-            new_room = curr_room.w_to
-        curr_room = new_room
-        status.print_current_status(
-            curr_room.name, curr_room.description, curr_room.items)
+        try:
+            if command == 'n':
+                new_room = curr_room.n_to
+            if command == 'e':
+                new_room = curr_room.e_to
+            if command == 's':
+                new_room = curr_room.s_to
+            if command == 'w':
+                new_room = curr_room.w_to
+            curr_room = new_room
+            status.print_current_status(
+                curr_room.name, curr_room.description, curr_room.items)
+        except:
+            print('Bad move!')
     print('Game over!')
 
 
