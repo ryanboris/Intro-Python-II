@@ -8,8 +8,10 @@ from puzzle import Puzzle
 from beginning import BeginGame
 from status import CurrentStatus
 from strings import strings
+from monsters import Monster
 from fonts import fonts
 import random
+import threading
 
 
 def main():
@@ -29,6 +31,20 @@ def main():
     count = 0
 
     while command != 'q':
+        def create_monster():
+            return Monster('Gelgrox', 'Pure evil energy', 100)
+
+        def set_interval(func, sec):
+            def func_wrapper():
+                set_interval(func, sec)
+                new_monster = func()
+                print(f'{new_monster.name} attacks!')
+            t = threading.Timer(sec, func_wrapper)
+            t.start()
+            return t
+
+        set_interval(create_monster, 100)
+
         command = input('\nEnter a command.\n')
         if (count % 7 == 0):
             print(
